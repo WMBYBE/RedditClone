@@ -2,8 +2,9 @@
 using RedditClone.Models;
 using System.Diagnostics;
 
-namespace RedditClone.Controllers
+namespace RedditClone.Areas.Posts.Controllers
 {
+    [Area("Posts")]
     public class HomeController : Controller
     {
         public IActionResult Index()
