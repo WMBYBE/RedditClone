@@ -1,19 +1,73 @@
 ﻿using Humanizer.Localisation;
 using Microsoft.EntityFrameworkCore;
+using RedditClone.Areas.Forums.Models;
 
-namespace RedditClone.Areas.Forums.Models
+namespace RedditClone.Models
 {
-    public class PostDBContext : DbContext
+    public class ForumDbContext : DbContext
     {
-        public PostDBContext(DbContextOptions<ForumDBContext> options)
+        public ForumDbContext(DbContextOptions<ForumDbContext> options)
             : base(options)
         { }
 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Forum> Forums { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Forum>().HasData(
+                new Forum
+                {
+                    ForumId = 1,
+                    Name = "Movies"
+                },
+                new Forum
+                {
+                    ForumId = 2,
+                    Name = "Games"
+                },
+                new Forum
+                {
+                    ForumId = 3,
+                    Name = "Other"
+                }
+            );
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserId = 1,
+                    Name = "Wellernaught"
+                },
+                new User
+                {
+                    UserId = 2,
+                    Name = "Thuggonomics"
+                },
+                new User
+                {
+                    UserId = 3,
+                    Name = "ricflair12441"
+                },
+                new User
+                {
+                    UserId = 4,
+                    Name = "PeterPumpkinEater"
+                },
+                new User
+                {
+                    UserId = 5,
+                    Name = "FirstNameBunch0Numbas"
+                },
+                new User
+                {
+                    UserId = 6,
+                    Name = "ReiGaan224"
+                }
+
+            );
             modelBuilder.Entity<Post>().HasData(
                 new Post
                 {
