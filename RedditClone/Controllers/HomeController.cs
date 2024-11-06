@@ -10,6 +10,10 @@ namespace RedditClone.Controllers
         {
             return View();
         }
-
+        [Route("Forums/[controller]/[action]/[id]")]
+        public IActionResult forums(string id)
+        {
+            return Content("ForumController, List action, Category: " + id);
+        }
     }
 }
