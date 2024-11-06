@@ -1,4 +1,4 @@
-﻿@model List<Forum>
+﻿@model List<forums>
 @{
     ViewBag.Title = "Forums";
 }
@@ -9,10 +9,10 @@
         <tr><th>Name</th></tr>
     </thead>
     <tbody>
-        @foreach (var Forums in Model)
+        @foreach (var forums in Model)
         {
             <tr>
-                <td>@Forums.Name</td>
+                <td>@forums.Name</td>
             </tr>
         }
     </tbody>
