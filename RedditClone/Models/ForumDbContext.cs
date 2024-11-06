@@ -121,7 +121,7 @@ namespace RedditClone.Models
                     UserId = 4,
                     Title = "My home was ransacked last night on christmas Eve",
                     Body = "I can believe it, the entire feast I prepared is gone. Who Pudding, Who Roast, even my ice box is nothing but crumbs left. \n" +
-                    "They even took my last can of Who hash... I think im going to be sick "
+                    "They even took my last can of Who hash... I think im going to be sick ",
                     Date = DateTime.UtcNow
                 }
             );

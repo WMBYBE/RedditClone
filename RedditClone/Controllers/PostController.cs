@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace RedditClone.Controllers
+namespace RedditClone.Area.Post.Controllers
 {
     public class PostController : Controller
     {
