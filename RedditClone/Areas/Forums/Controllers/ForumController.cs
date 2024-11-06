@@ -5,7 +5,7 @@ namespace RedditClone.Controllers
 {
     public class ForumController : Controller
     {
-        // GET: ForumController
+        [Area("Forum")]
         public ActionResult Index()
         {
             return View();
