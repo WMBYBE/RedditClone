@@ -10,6 +10,5 @@ namespace RedditClone.Controllers
         {
             return View();
         }
-
     }
 }
