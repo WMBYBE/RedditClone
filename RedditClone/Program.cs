@@ -7,11 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ForumDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ForumDbContext")));
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ForumContext")));
 
 var app = builder.Build();
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

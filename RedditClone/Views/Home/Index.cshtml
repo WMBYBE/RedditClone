@@ -1,16 +1,18 @@
-﻿@model List<ForumDbContext>;
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewBag.Title = "Forums";
 }
 
-<table> 
-    @foreach (Forum c in Model)
-    {
+<h2>Forums</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr><th>Name</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var forums in Model)
+        {
             <tr>
-                <td>@c.Name</td>
-                <td>@c.Attack</td>
-                <td>@c.Defense</td>
-                <td>@c.HP</td>
+                <td>@forums.Name</td>
             </tr>
-    }
+        }
+    </tbody>
 </table>

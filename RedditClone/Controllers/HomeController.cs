@@ -7,22 +7,18 @@ namespace RedditClone.Controllers
 {
     public class HomeController : Controller
     {
-
         private ForumDbContext context { get; set; }
 
-        public HomeController(ForumDbContext context)
+        public HomeController(ForumDbContext ctx)
         {
-            this.context = context;
+            context = ctx;
         }
 
         public IActionResult Index()
         {
-            var characters = context.Forums.OrderBy(c => c.Name).ToList();
-            return View(characters);
+            return View();
         }
-
-
-        //[Route("Forums/[controller]/[action]/[id]")]
+        [Route("Forums/[controller]/[action]/[id]")]
         public IActionResult forums(string id)
         {
             return Content("ForumController, List action, Category: " + id);
