@@ -1,8 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Forum>
+@{
+    ViewBag.Title = "Forums";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Forums</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr><th>Name</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var Forums in Model)
+        {
+            <tr>
+                <td>@Forums.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
