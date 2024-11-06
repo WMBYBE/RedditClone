@@ -6,11 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ForumDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ForumDbContext")));
+
 var app = builder.Build();
 
-builder.Services.AddDbContext<ForumDbContext>(options =>
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ForumDbContext")));
 
 
 app.UseHttpsRedirection();
