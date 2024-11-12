@@ -8,8 +8,18 @@ namespace RedditClone.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var forums = context.Forums
+                .OrderBy(forum => forum.Name)
+                .ToList();
+            return View(forums);
         }
+<<<<<<< Updated upstream
 
+=======
+        public IActionResult forums(string id)
+        {
+            return Content("ForumController, List action, Category: " + id);
+        }
+>>>>>>> Stashed changes
     }
 }
