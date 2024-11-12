@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace RedditClone.Areas.Forums.Controllers
 {
-    [Area("Forum"]
+    [Area("Forum")]
     public class HomeController : Controller
     {
         public IActionResult Index()
