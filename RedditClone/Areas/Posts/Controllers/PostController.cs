@@ -6,7 +6,7 @@ namespace RedditClone.Controllers
     public class PostController : Controller
     {
         
-        public IActionResult Index(int postid, int forumid)
+        public IActionResult index(int postid, int forumid)
         {
             return View("Post");
         }

@@ -25,6 +25,11 @@ app.MapAreaControllerRoute(
     areaName: "Forums",
     pattern: "Forums/{controller=Forum}/{action=Index}/{id?}");
 
+app.MapAreaControllerRoute(
+    name: "Posts",
+    areaName: "Posts",
+    pattern: "Posts/{controller=Post}/{action=Index}/{id?}");
+
 
 app.MapControllerRoute(
     name: "default",
