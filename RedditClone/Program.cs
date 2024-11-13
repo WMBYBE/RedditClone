@@ -20,6 +20,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapAreaControllerRoute(
+    name: "Forums",
+    areaName: "Forums",
+    pattern: "Forums/{controller=Forum}/{action=Index}/{id?}");
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

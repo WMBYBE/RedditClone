@@ -16,12 +16,19 @@ namespace RedditClone.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var forum = context.Forums.OrderBy(c => c.Name).ToList();
+            return View(forum);
         }
-        [Route("Forums/[controller]/[action]/[id]")]
+        //[Route("Forums/[controller]/[action]/[id]")]
         public IActionResult forums(string id)
         {
             return Content("ForumController, List action, Category: " + id);
+        }
+        [Area("Forums")]
+        public ActionResult Forum(int id)
+        {
+             //  PAGE 219;
+            return View("~/Areas/Forums/Views/Index");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Forum>
+@{
     ViewBag.Title = "Forums";
 }
 
@@ -11,7 +12,9 @@
         @foreach (var forums in Model)
         {
             <tr>
-                <td>@forums.Name</td>
+                <td>
+                    <a asp-controller="Forum" asp-action="index" asp-area="Forums" asp-route-id="@forums.ForumId"> @forums.Name </a>
+                </td>
             </tr>
         }
     </tbody>

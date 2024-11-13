@@ -3,12 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RedditClone.Areas.Forums.Controllers
 {
+    [Area("Forums")]
     public class ForumController : Controller
     {
-        [Area("Forum")]
-        public ActionResult Index()
+        
+        [Route("[action]/{id?}")]
+        public ActionResult index(int id)
         {
-            return View();
+            //PAGE 219                                                  
+            id = 0;
+            return View("Index");
         }
 
     }

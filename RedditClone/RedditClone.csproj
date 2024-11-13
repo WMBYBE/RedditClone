@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Forums\Controllers\" />
     <Folder Include="Areas\Forums\Data\" />
-    <Folder Include="Areas\Forums\Views\" />
     <Folder Include="Areas\Posts\Data\" />
     <Folder Include="Areas\Posts\Views\" />
   </ItemGroup>
