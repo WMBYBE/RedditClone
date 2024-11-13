@@ -1,5 +1,4 @@
-﻿@model List<Post>
-@{
+﻿﻿@{
     ViewBag.Title = "Forums";
 }
 
@@ -9,7 +8,7 @@
     {
         <thead>
             <tr>
-                <a asp-controller="posts" asp-action="index" asp-area="Posts" asp-route-id="@posts.PostID"> @posts.Name </a>
+                <th>@Posts.Title</th>
                 <th>@Posts.Date</th>
             </tr>
             <tr>
@@ -20,6 +19,6 @@
             <tr>
                 <th>@Posts.Body</th>
             </tr>
-    </tbody>
+        </tbody>
     }
 </table>
