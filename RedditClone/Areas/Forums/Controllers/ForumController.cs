@@ -11,8 +11,7 @@ namespace RedditClone.Areas.Forums.Controllers
         public ActionResult index(int id)
         {
             //PAGE 219                                                  
-            id = 0;
-            return View("Index");
+            return View("Index" + id);
         }
 
     }

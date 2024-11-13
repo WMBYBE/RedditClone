@@ -2,12 +2,13 @@
 
 namespace RedditClone.Controllers
 {
+    [Area("Posts")]
     public class PostController : Controller
     {
-        [Area("Posts")]
-        public IActionResult Index()
+        
+        public IActionResult Index(int postid, int forumid)
         {
-            return View();
+            return View("Post");
         }
     }
 }
