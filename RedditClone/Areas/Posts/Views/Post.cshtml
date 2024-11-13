@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Forums";
+}
+
+<h2>Forums</h2>
+<table class="table table-bordered table-striped">
+    @foreach (var Posts in Model)
+    {
+        <thead>
+            <tr>
+                <th>@Posts.Title</th>
+                <th>@Posts.Date</th>
+            </tr>
+            <tr>
+                <td>User</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Posts.Body</th>
+            </tr>
+    </tbody>
+    }
+</table>
