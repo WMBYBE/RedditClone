@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Forums";
+﻿@model List<Post>
+@{
+    ViewBag.Title = "Posts";
 }
 
 <h2>Forums</h2>
@@ -8,6 +9,13 @@
         <tr><th>Name</th></tr>
     </thead>
     <tbody>
-            <P>HELLO</P>
+        @foreach (var posts in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="posts" asp-action="index" asp-area="Posts" asp-route-id="@posts.ForumId"> @posts.Name </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
