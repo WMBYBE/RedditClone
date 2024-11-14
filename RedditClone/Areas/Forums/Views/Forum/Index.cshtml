@@ -1,5 +1,6 @@
-﻿﻿@{
-    ViewBag.Title = "Forums";
+﻿@model List<RedditClone.Models.Post>
+@{
+    ViewBag.Title = "Forum";
 }
 
 <h2>Forums</h2>
@@ -8,7 +9,13 @@
         <tr><th>Name</th></tr>
     </thead>
     <tbody>
-        <P>HELLO</P>
-
+        @foreach (var forum in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Forum" asp-action="index" asp-area="Forum" asp-route-id="@forum.ForumId"> @forum.Title </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

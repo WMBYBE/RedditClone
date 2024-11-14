@@ -1,7 +1,7 @@
 ﻿using Humanizer.Localisation;
 using System.ComponentModel.DataAnnotations;
 
-namespace RedditClone.Areas.Forums.Models;
+namespace RedditClone.Models;
 public class Post
 {
     // EF will instruct the database to automatically generate this value
