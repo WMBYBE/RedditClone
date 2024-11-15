@@ -22,12 +22,11 @@ namespace RedditClone.Controllers
             return View(forums);
         }
 
-        [Route ("Forums")]
         public IActionResult ViewForum(int Forumid)
         {
             var posts = context.Posts
                 .Include(f => f.Title)
-                .OrderBy(f => f.ForumId == Forumid).ToList();
+                .OrderBy(f => f.ForumId);
             return View(posts);
         }
         }
