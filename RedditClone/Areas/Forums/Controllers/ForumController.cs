@@ -14,5 +14,11 @@ namespace RedditClone.Areas.Forums.Controllers
         {
             context = ctx;
         }
+
+        public IActionResult index(int Forumid)
+        {
+            var posts = context.Posts.ToList();
+            return View(posts);
+        }
     }
 }

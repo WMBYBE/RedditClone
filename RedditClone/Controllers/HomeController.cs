@@ -21,13 +21,5 @@ namespace RedditClone.Controllers
             var forums = context.Forums.OrderBy(c => c.Name).ToList();
             return View(forums);
         }
-
-        public IActionResult ViewForum(int Forumid)
-        {
-            var posts = context.Posts
-                .Include(f => f.Title)
-                .OrderBy(f => f.ForumId);
-            return View(posts);
-        }
-        }
+    }
 }
