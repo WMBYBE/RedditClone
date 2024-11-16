@@ -13,7 +13,7 @@
         {
             <tr>
                 <td>
-                    <a asp-area="Forum" asp-controller="Forum" asp-action="ViewForum" asp-route-id="@forum.ForumId"> @forum.Title </a>
+                    <a asp-controller="Post" asp-action="Post" asp-area="Forums" asp-route-id="@forum.PostId"> @forum.Title </a>
                 </td>
             </tr>
         }

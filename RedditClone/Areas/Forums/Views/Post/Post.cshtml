@@ -1,15 +1,16 @@
-﻿﻿@{
+﻿@model List<RedditClone.Models.Post>
+﻿@{
     ViewBag.Title = "Forums";
 }
 
 <h2>Forums</h2>
 <table class="table table-bordered table-striped">
-    @foreach (var Posts in Model)
+    @foreach (var post in Model)
     {
         <thead>
             <tr>
-                <th>@Posts.Title</th>
-                <th>@Posts.Date</th>
+                <th>@post.Title</th>
+                <th>@post.Date</th>
             </tr>
             <tr>
                 <td>User</td>
@@ -17,7 +18,7 @@
         </thead>
         <tbody>
             <tr>
-                <th>@Posts.Body</th>
+                <th>@post.Body</th>
             </tr>
         </tbody>
     }
