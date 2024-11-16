@@ -1,25 +1,7 @@
-﻿@model List<RedditClone.Models.Post>
+﻿@model RedditClone.Models.Post
 ﻿@{
-    ViewBag.Title = "Forums";
+    ViewBag.Title = "Post";
 }
 
-<h2>Forums</h2>
-<table class="table table-bordered table-striped">
-    @foreach (var post in Model)
-    {
-        <thead>
-            <tr>
-                <th>@post.Title</th>
-                <th>@post.Date</th>
-            </tr>
-            <tr>
-                <td>User</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>@post.Body</th>
-            </tr>
-        </tbody>
-    }
-</table>
+<h2>@Model.Title</h2>
+<p>@Model.Body</p>
