@@ -15,9 +15,21 @@ namespace RedditClone.Areas.Forums.Controllers
             context = ctx;
         }
 
-        public IActionResult index(int Forumid)
+        public IActionResult index(int id)
         {
-            var posts = context.Posts.ToList();
+            var forums = context.Forums
+                .OrderBy(c => c.ForumId).ToList();
+
+            List<Post> posts;
+            {
+                posts = context.Posts
+                    .Where(p => p.Forum.ForumId == id)
+                    .OrderBy(p => p.PostId).ToList();
+            }
+
+            // use ViewBag to pass data to view
+            ViewBag.Forum = posts;
+
             return View(posts);
         }
     }
