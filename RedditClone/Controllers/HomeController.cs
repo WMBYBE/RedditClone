@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RedditClone.Areas.Forums.Models;
 using RedditClone.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace RedditClone.Controllers
 {
@@ -16,8 +18,8 @@ namespace RedditClone.Controllers
 
         public IActionResult Index()
         {
-            var forum = context.Forums.OrderBy(c => c.Name).ToList();
-            return View(forum);
+            var forums = context.Forums.OrderBy(c => c.Name).ToList();
+            return View(forums);
         }
     }
 }

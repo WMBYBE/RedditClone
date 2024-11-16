@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RedditClone.Models;
 
 namespace RedditClone.Areas.Forums.Controllers
@@ -14,14 +15,16 @@ namespace RedditClone.Areas.Forums.Controllers
             context = ctx;
         }
 
-        [Route("[action]/{id?}")]
-        public ActionResult index(int id)
+        public IActionResult index(int id)
         {
-            //PAGE 219                                                  
-            var forum = context.Posts.OrderBy(c => c.PostId).ToList();
-            return View(forum);
+            List<Post> posts;
+            {
+                posts = context.Posts
+                    .Where(p => p.Forum.ForumId == id)
+                    .OrderBy(p => p.PostId).ToList();
+            }
 
+            return View(posts);
         }
-
     }
 }

@@ -1,12 +1,13 @@
 ﻿using Humanizer.Localisation;
 using System.ComponentModel.DataAnnotations;
 
-namespace RedditClone.Areas.Forums.Models;
+namespace RedditClone.Models;
 public class Post
 {
     // EF will instruct the database to automatically generate this value
     public int PostId { get; set; }
     public int ForumId { get; set; }
+    public Forum Forum { get; set; }
     public int UserId { get; set; }
 
     [Required(ErrorMessage = "Please enter a name.")]

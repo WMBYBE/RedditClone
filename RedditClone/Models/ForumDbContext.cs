@@ -39,32 +39,44 @@ namespace RedditClone.Models
                 new User
                 {
                     UserId = 1,
-                    Name = "Wellernaught"
+                    Name = "Wellernaught",
+                    Password = "123",
+                    Email = "well@naught.com"
                 },
                 new User
                 {
                     UserId = 2,
-                    Name = "Thuggonomics"
+                    Name = "Thuggonomics",
+                    Password = "123",
+                    Email = "money@aol.com"
                 },
                 new User
                 {
                     UserId = 3,
-                    Name = "ricflair12441"
+                    Name = "ricflair12441",
+                    Password = "123",
+                    Email = "Wooback@google.com"
                 },
                 new User
                 {
                     UserId = 4,
-                    Name = "PeterPumpkinEater"
+                    Name = "PeterPumpkinEater",
+                    Password = "123",
+                    Email = "ppe@gmail.com"
                 },
                 new User
                 {
                     UserId = 5,
-                    Name = "FirstNameBunch0Numbas"
+                    Name = "FirstNameBunch0Numbas",
+                    Password = "123",
+                    Email = "DoNotReply@yahoo.com"
                 },
                 new User
                 {
                     UserId = 6,
-                    Name = "ReiGaan224"
+                    Name = "ReiGaan224",
+                    Password = "123",
+                    Email = "goku221@goku.com"
                 }
 
             );
