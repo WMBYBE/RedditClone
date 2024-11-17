@@ -45,7 +45,7 @@ namespace RedditClone.Migrations
 
                     b.HasKey("CommentId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
 
                     b.HasData(
                         new
@@ -112,7 +112,7 @@ namespace RedditClone.Migrations
 
                     b.HasKey("ForumId");
 
-                    b.ToTable("Forums");
+                    b.ToTable("Forums", (string)null);
 
                     b.HasData(
                         new
@@ -158,7 +158,7 @@ namespace RedditClone.Migrations
 
                     b.HasKey("PostId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
 
                     b.HasData(
                         new
@@ -231,7 +231,7 @@ namespace RedditClone.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new

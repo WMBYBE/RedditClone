@@ -31,5 +31,31 @@ namespace RedditClone.Areas.Forums.Controllers
 
             return View(post);
         }
+        [HttpGet]
+        public IActionResult add()
+        {
+            ViewBag.Action = "Add";
+            ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
+            return View("Add", new Post());
+        }
+        [HttpPost]
+        public IActionResult add(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                if (post.PostId == 0)
+                    context.Posts.Add(post);
+                else
+                    context.Posts.Update(post);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Action = (post.PostId == 0) ? "Add" : "Edit";
+                ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
+                return View(post);
+            }
+        }
     }
 }
