@@ -23,7 +23,8 @@ namespace RedditClone.Areas.Forums.Controllers
                     .Where(p => p.Forum.ForumId == id)
                     .OrderBy(p => p.PostId).ToList();
             }
-
+            ViewBag.ForumName = context.Forums.Find(id);
+            ViewBag.Users = context.Users.Find(id);
             return View(posts);
         }
     }

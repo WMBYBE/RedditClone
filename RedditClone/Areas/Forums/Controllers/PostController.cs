@@ -48,7 +48,7 @@ namespace RedditClone.Areas.Forums.Controllers
                 else
                     context.Posts.Update(post);
                 context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new {area = ""});
             }
             else
             {
