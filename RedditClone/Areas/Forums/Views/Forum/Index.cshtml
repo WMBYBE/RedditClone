@@ -1,7 +1,9 @@
 ﻿@model List<RedditClone.Models.Post>
 @{
     ViewBag.Title = "Forum";
+    Layout = "_Layout";
 }
+
 
 <a asp-controller="Post" asp-area="Forums" asp-action="Add">Add New Post</a>
 <h2>@ViewBag.ForumName.Name</h2>
