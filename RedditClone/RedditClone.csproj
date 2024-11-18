@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="Areas\Forums\Controllers\" />
     <Folder Include="Areas\Forums\Data\" />
+    <Folder Include="Areas\Users\Views\User\" />
   </ItemGroup>
 
 </Project>
