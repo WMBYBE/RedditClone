@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RedditClone.Areas.Forums.Models;
 using RedditClone.Models;
 using System.Diagnostics;
 using System.Linq;

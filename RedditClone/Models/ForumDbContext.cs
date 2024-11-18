@@ -1,6 +1,6 @@
 ﻿using Humanizer.Localisation;
 using Microsoft.EntityFrameworkCore;
-using RedditClone.Areas.Forums.Models;
+using RedditClone.Models;
 using System.Reflection.Metadata;
 
 namespace RedditClone.Models

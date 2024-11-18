@@ -10,7 +10,7 @@
 <a class="text-decoration-none border border-dark text-dark" asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
 <div class="col-sm-2">
     <div class="list-group">
-        @foreach (RedditClone.Areas.Forums.Models.Comment c in ViewBag.Comments)
+        @foreach (RedditClone.Models.Comment c in ViewBag.Comments)
         {
             <p>
                 @c.Body

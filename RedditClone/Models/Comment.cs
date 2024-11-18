@@ -5,7 +5,7 @@ using RedditClone.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
-namespace RedditClone.Areas.Forums.Models;
+namespace RedditClone.Models;
 public class Comment
 {
     // EF will instruct the database to automatically generate this value
