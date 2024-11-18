@@ -14,7 +14,17 @@
         <input asp-for="Body" class="form-control">
     </div>
 
-    <input type="hidden" asp-for="PostId" value="PostId" />
+    <div class="form-group">
+        <label asp-for="PostId">Post</label>
+        <select asp-for="PostId" class="form-control">
+            <option value="">Select a Post to Comment on</option>
+            @foreach (Post f in ViewBag.Posts)
+            {
+                <option value="@f.PostId">@f.Title</option>
+            }
+        </select>
+    </div>
+
     <input type="hidden" asp-for="CommentId" />
 
     <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
