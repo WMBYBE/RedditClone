@@ -21,5 +21,10 @@ namespace RedditClone.Controllers
             var forums = context.Forums.OrderBy(c => c.Name).ToList();
             return View(forums);
         }
+        public IActionResult Login()
+        {
+            var User = context.Users.OrderBy(c => c.Name).ToList();
+            return View(User);
+        }
     }
 }
