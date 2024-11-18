@@ -23,8 +23,7 @@ namespace RedditClone.Controllers
         }
         public IActionResult Login()
         {
-            var User = context.Users.OrderBy(c => c.Name).ToList();
-            return View(User);
+            return View();
         }
     }
 }
