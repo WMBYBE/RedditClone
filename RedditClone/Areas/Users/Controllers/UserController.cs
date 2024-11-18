@@ -11,7 +11,7 @@ namespace RedditClone.Areas.Users.Controllers
         {
             context = ctx;
         }
-        public ActionResult Index(int id)
+        public ActionResult index(int id)
         {
             var posts = context.Posts
                     .Where(p => p.User.UserId == id)
