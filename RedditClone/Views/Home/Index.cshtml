@@ -25,3 +25,16 @@
         }
     </tbody>
 </table>
+
+<div class="col-sm-2">
+    <div class="list-group">
+        @foreach (RedditClone.Models.Post p in ViewBag.TopPosts)
+        {
+            <q>
+                @p.Title
+            </q>
+            <p>
+                @p.Date
+            </p>
+        }
+    </div>

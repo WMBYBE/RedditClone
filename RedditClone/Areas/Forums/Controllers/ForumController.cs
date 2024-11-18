@@ -15,30 +15,27 @@ namespace RedditClone.Areas.Forums.Controllers
             context = ctx;
         }
 
-        public IActionResult index(int id)
+        public ActionResult Index(string sortOrder, int id)
         {
-            List<Post> posts;
-            {
-                posts = context.Posts
+            var forumList = context.Forums
+                .OrderBy(c => c.ForumId).ToList(); 
+
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            var posts = context.Posts
                     .Where(p => p.Forum.ForumId == id)
-                    .OrderBy(p => p.PostId).ToList();
-            }
-            ViewBag.ForumName = context.Forums.Find(id);
-            ViewBag.Users = context.Users.Find(id);
-            return View(posts);
-        }
-        [HttpPost]
-        public IActionResult Index(string searchString)
-        {
-
-            var posts = from p in context.Posts
-                         select p;
-
-            if (!String.IsNullOrEmpty(searchString))
+                    .OrderBy(p => p.PostId);
+            posts = sortOrder switch
             {
-                posts = posts.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
-            }
+                "name_desc" => posts.OrderByDescending(s => s.Title),
+                "Date" => posts.OrderBy(s => s.Date),
+                "date_desc" => posts.OrderByDescending(s => s.Date),
+                _ => posts.OrderBy(s => s.Title),
 
+            };
+            ViewBag.ForumName = context.Forums.Find(id);
+            ViewBag.Users = context.Users.Find(id); //The idea here is to pass the userId to the view, however right now its passing the id passed from the index (currently the forumId)
+            ViewBag.ForumList = forumList;
             return View(posts.ToList());
         }
     }
