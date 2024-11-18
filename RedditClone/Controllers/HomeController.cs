@@ -20,9 +20,16 @@ namespace RedditClone.Controllers
             var forums = context.Forums.OrderBy(c => c.Name).ToList();
             return View(forums);
         }
+
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            return RedirectToAction("Index", "Home");
         }
     }
 }
