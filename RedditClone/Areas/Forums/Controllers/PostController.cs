@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RedditClone.Areas.Forums.Controllers;
-using RedditClone.Areas.Forums.Models;
 using RedditClone.Models;
 
 namespace RedditClone.Areas.Forums.Controllers
@@ -39,11 +38,11 @@ namespace RedditClone.Areas.Forums.Controllers
             return View("Add", new Post());
         }
         [HttpGet]
-        public IActionResult addComment()
+        public IActionResult addComment(int id)
         {
             ViewBag.Action = "Add";
-            ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
-            return View("Add", new Post());
+            ViewBag.PostID = context.Posts.Find(id);
+            return View("AddComment", new Comment());
         }
         [HttpPost]
         public IActionResult add(Post post)
@@ -65,22 +64,21 @@ namespace RedditClone.Areas.Forums.Controllers
             }
         }
         [HttpPost]
-        public IActionResult addComment(Post post)
+        public IActionResult addComment(Comment comment)
         {
             if (ModelState.IsValid)
             {
-                if (post.PostId == 0)
-                    context.Posts.Add(post);
+                if (comment.CommentId == 0)
+                    context.Comments.Add(comment);
                 else
-                    context.Posts.Update(post);
+                    context.Comments.Update(comment);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
             {
-                ViewBag.Action = (post.PostId == 0) ? "Add" : "Edit";
-                ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
-                return View(post);
+                ViewBag.Action = (comment.CommentId == 0) ? "AddComment" : "Edit";
+                return View(comment);
             }
         }
     }
