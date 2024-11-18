@@ -38,6 +38,13 @@ namespace RedditClone.Areas.Forums.Controllers
             ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
             return View("Add", new Post());
         }
+        [HttpGet]
+        public IActionResult addComment()
+        {
+            ViewBag.Action = "Add";
+            ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
+            return View("Add", new Post());
+        }
         [HttpPost]
         public IActionResult add(Post post)
         {
@@ -49,6 +56,25 @@ namespace RedditClone.Areas.Forums.Controllers
                     context.Posts.Update(post);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home", new {area = ""});
+            }
+            else
+            {
+                ViewBag.Action = (post.PostId == 0) ? "Add" : "Edit";
+                ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
+                return View(post);
+            }
+        }
+        [HttpPost]
+        public IActionResult addComment(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                if (post.PostId == 0)
+                    context.Posts.Add(post);
+                else
+                    context.Posts.Update(post);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
             {

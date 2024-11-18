@@ -6,6 +6,7 @@
 <h2>@Model.Title</h2>
 <p>@Model.Body</p>
 
+<a asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
 <div class="col-sm-2">
     <div class="list-group">
         @foreach (RedditClone.Areas.Forums.Models.Comment c in ViewBag.Comments)
