@@ -4,16 +4,25 @@
     Layout = "_Layout";
 }
 
-<h2>@Model.Title</h2>
+<table>
+    <thead> 
+        <tr>
+            <td>@Model.Title</td>
+            <td>@Model.Date</td>
+        </tr>
+    </thead>
 <p>@Model.Body</p>
-
+</table>
 <a asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
 <div class="col-sm-2">
     <div class="list-group">
         @foreach (RedditClone.Models.Comment c in ViewBag.Comments)
         {
-            <p>
+            <q>
                 @c.Body
+            </q>
+            <p>
+                @c.Date
             </p>
         }
     </div>

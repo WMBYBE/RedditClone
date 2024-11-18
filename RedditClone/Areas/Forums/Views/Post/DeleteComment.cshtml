@@ -1,0 +1,15 @@
+﻿@model Comment
+@{
+    ViewBag.Title = "Delete Comment";
+}
+
+<h2>Confirm Deletion</h2>
+<textarea>@Model.Body</textarea>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CommentId" />
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
+
