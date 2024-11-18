@@ -34,7 +34,7 @@ namespace RedditClone.Areas.Forums.Controllers
 
             };
             ViewBag.ForumName = context.Forums.Find(id);
-            ViewBag.Users = context.Users.Find(id);
+            ViewBag.Users = context.Users.Find(id); //The idea here is to pass the userId to the view, however right now its passing the id passed from the index (currently the forumId)
             ViewBag.ForumList = forumList;
             return View(posts.ToList());
         }
