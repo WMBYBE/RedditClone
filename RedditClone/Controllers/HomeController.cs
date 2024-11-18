@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RedditClone.Models;
@@ -52,6 +53,19 @@ namespace RedditClone.Controllers
         [HttpPost]
         public IActionResult Login(User user)
         {
+            string name = user.Name;
+            IQueryable<User> query = context.Users.Where(m => m.Name == name);
+            //List<User> identification = query.ToList();
+            var foundUser = query.FirstOrDefault();
+
+            if(foundUser == null)
+            {
+                Login();
+            }
+            else{
+                //foundUser.UserId
+            }
+
             return RedirectToAction("Index", "Home");
         }
     }
