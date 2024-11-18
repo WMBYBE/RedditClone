@@ -17,6 +17,9 @@ namespace RedditClone.Areas.Forums.Controllers
 
         public ActionResult Index(string sortOrder, int id)
         {
+            var forumList = context.Forums
+                .OrderBy(c => c.ForumId).ToList(); 
+
             ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSort = sortOrder == "Date" ? "date_desc" : "Date";
             var posts = context.Posts
@@ -32,6 +35,7 @@ namespace RedditClone.Areas.Forums.Controllers
             };
             ViewBag.ForumName = context.Forums.Find(id);
             ViewBag.Users = context.Users.Find(id);
+            ViewBag.ForumList = forumList;
             return View(posts.ToList());
         }
     }
