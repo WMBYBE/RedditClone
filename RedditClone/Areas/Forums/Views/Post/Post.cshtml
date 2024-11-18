@@ -1,4 +1,4 @@
-﻿@model RedditClone.Models.Post
+﻿@model Post
 ﻿@{
     ViewBag.Title = "Post";
     Layout = "_Layout";
@@ -11,7 +11,9 @@
             <td>@Model.Date</td>
         </tr>
     </thead>
-<p>@Model.Body</p>
+<tbody>
+        @Model.Body
+</tbody>
 </table>
 <a asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
 <div class="col-sm-2">

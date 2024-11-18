@@ -15,30 +15,23 @@ namespace RedditClone.Areas.Forums.Controllers
             context = ctx;
         }
 
-        public IActionResult index(int id)
+        public ActionResult Index(string sortOrder, int id)
         {
-            List<Post> posts;
-            {
-                posts = context.Posts
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            var posts = context.Posts
                     .Where(p => p.Forum.ForumId == id)
-                    .OrderBy(p => p.PostId).ToList();
-            }
+                    .OrderBy(p => p.PostId);
+            posts = sortOrder switch
+            {
+                "name_desc" => posts.OrderByDescending(s => s.Title),
+                "Date" => posts.OrderBy(s => s.Date),
+                "date_desc" => posts.OrderByDescending(s => s.Date),
+                _ => posts.OrderBy(s => s.Title),
+
+            };
             ViewBag.ForumName = context.Forums.Find(id);
             ViewBag.Users = context.Users.Find(id);
-            return View(posts);
-        }
-        [HttpPost]
-        public IActionResult Index(string searchString)
-        {
-
-            var posts = from p in context.Posts
-                         select p;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                posts = posts.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
-            }
-
             return View(posts.ToList());
         }
     }
