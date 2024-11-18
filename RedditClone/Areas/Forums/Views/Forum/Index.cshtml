@@ -3,7 +3,12 @@
     ViewBag.Title = "Forum";
     Layout = "_Layout";
 }
-
+<!--<form asp-area="Forums" asp-controller="Forums" asp-action="Index" asp-route-id="@Post.ForumId"> -->
+    <p>
+        <label>Title: <input type="text" name="SearchString" /></label>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 
 <a class="text-decoration-none border border-primary" asp-controller="Post" asp-area="Forums" asp-action="Add">Add New Post</a>
 <h2>@ViewBag.ForumName.Name</h2>
