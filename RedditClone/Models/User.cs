@@ -1,5 +1,6 @@
 ﻿using Humanizer.Localisation;
 using System.ComponentModel.DataAnnotations;
+using RedditClone.Models;
 
 namespace RedditClone.Models;
 public class User

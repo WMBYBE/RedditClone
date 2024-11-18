@@ -1,4 +1,4 @@
-﻿@model List<Post>
+﻿@model List<Post> //index for viewing posts in a forum
 @{
     ViewBag.Title = "Forum";
     Layout = "_Layout";
@@ -33,10 +33,7 @@
             <tr>
                 <td>
                     <a asp-controller="Post" asp-action="Post" asp-area="Forums" asp-route-id="@forum.PostId"> @forum.Title </a>
-                    <p>@ViewBag.Users.Name</p> 
-                <td> 
-                            <a class="text-decoration-none border border-success text-success" asp-controller="Post" asp-action="Post" asp-area="Forums" asp-route-id="@forum.PostId"> @forum.Title </a>
-                    <p>@ViewBag.Users.Name</p>
+                    <p>@ViewBag.Users.Name</p> <!--This should receieve the userid-->
                 </td>
             </tr>
         }
