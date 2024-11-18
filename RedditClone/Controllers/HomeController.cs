@@ -16,13 +16,23 @@ namespace RedditClone.Controllers
             context = ctx;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
-            var forums = context.Forums.OrderBy(c => c.Name).ToList();
+            var forums = context.Forums.OrderBy(c => c.Name).ToList(); //Sends the lsit of forums to the index page so that you can see them all
+            
+            List<Post> posts;
+            {
+                posts = context.Posts
+                    .OrderBy(p => p.Date).ToList(); //sorts posts by date
+            }
+            var topPosts = posts.Take(3); //limits the posts to show to the top 3
+
+            ViewBag.TopPosts = topPosts;
+
             return View(forums);
         }
         [HttpPost]
-        public IActionResult Index(string searchString)
+        public IActionResult Index(string searchString) //allows searching 
         {
 
             var forums = from m in context.Forums
