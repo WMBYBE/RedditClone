@@ -20,6 +20,20 @@ namespace RedditClone.Controllers
             var forums = context.Forums.OrderBy(c => c.Name).ToList();
             return View(forums);
         }
+        [HttpPost]
+        public IActionResult Index(string searchString)
+        {
+
+            var forums = from m in context.Forums
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                forums = forums.Where(s => s.Name!.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            return View(forums.ToList());
+        }
         public IActionResult Login()
         {
             return View();

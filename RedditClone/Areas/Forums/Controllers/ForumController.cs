@@ -27,5 +27,19 @@ namespace RedditClone.Areas.Forums.Controllers
             ViewBag.Users = context.Users.Find(id);
             return View(posts);
         }
+        [HttpPost]
+        public IActionResult Index(string searchString)
+        {
+
+            var posts = from p in context.Posts
+                         select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            return View(posts.ToList());
+        }
     }
 }
