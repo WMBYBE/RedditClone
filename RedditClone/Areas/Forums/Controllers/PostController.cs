@@ -41,7 +41,7 @@ namespace RedditClone.Areas.Forums.Controllers
         public IActionResult addComment(int id)
         {
             ViewBag.Action = "Add";
-            ViewBag.PostID = context.Posts.Find(id);
+            ViewBag.Posts = context.Posts.OrderBy(g => g.Title).ToList();
             return View("AddComment", new Comment());
         }
         [HttpPost]
@@ -78,6 +78,7 @@ namespace RedditClone.Areas.Forums.Controllers
             else
             {
                 ViewBag.Action = (comment.CommentId == 0) ? "AddComment" : "Edit";
+                ViewBag.Posts = context.Posts.OrderBy(g => g.Title).ToList();
                 return View(comment);
             }
         }
