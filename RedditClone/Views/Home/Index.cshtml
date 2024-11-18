@@ -1,4 +1,4 @@
-﻿@model List<RedditClone.Models.Post>
+﻿@model List<Forum>
 @{
     ViewBag.Title = "Forums";
 }
@@ -19,8 +19,7 @@
         {
             <tr>
                 <td>
-                      <a class="text-decoration-none border border-dark text-dark" asp-controller="Forum" asp-action="Index" asp-area="Forums" asp-route-id="@forums.ForumId"> @forums.Title </a>
-                            <p>@ViewBag.Users.Name</p>
+                      <a class="text-decoration-none border border-dark text-dark" asp-controller="Forum" asp-action="Index" asp-area="Forums" asp-route-id="@forums.ForumId"> @forums.Name </a>
                 </td>
             </tr>
         }
