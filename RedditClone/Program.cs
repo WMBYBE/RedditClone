@@ -1,11 +1,15 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using RedditClone.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 
 builder.Services.AddDbContext<ForumDbContext>(options =>
 
@@ -18,6 +22,9 @@ app.UseStaticFiles();
 
 
 app.UseRouting();
+app.UseSession();
+
+
 
 app.UseAuthentication();
 app.UseAuthorization();
