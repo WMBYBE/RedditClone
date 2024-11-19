@@ -9,7 +9,7 @@
         <tr>
             <td scope ="col">@Model.Title</td>
             <td scope="col">@Model.Date</td>
-            <td scope ="col" >
+            <td scope ="col"
                 <a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId" class="text-decoration-none text-primary"> Posted by User Number: @Model.UserId</a>
             </td><
             </tr>
