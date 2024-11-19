@@ -21,10 +21,8 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-        <p class="text-decoration-none border border-primary">@Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSort })</p>
-        </tr>
-        <tr>
-        <p class="text-decoration-none border border-primary">@Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSort })</p>
+        <th class="text-decoration-none border border-primary">@Html.ActionLink("Name Sort", "Index", new { sortOrder = ViewBag.NameSort })</th>
+        <th class="text-decoration-none border border-primary">@Html.ActionLink("Date Sort", "Index", new { sortOrder = ViewBag.DateSort })</th>
         </tr>
     </thead>
     <tbody>
