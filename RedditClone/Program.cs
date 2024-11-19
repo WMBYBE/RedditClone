@@ -14,6 +14,14 @@ builder.Services.AddSession();
 builder.Services.AddDbContext<ForumDbContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("ForumContext")));
+builder.Services.AddSession(options =>
+{
+    // change idle timeout to 5 minutes - default is 20 minutes
+    options.IdleTimeout = TimeSpan.FromSeconds(60 * 5);
+    options.Cookie.HttpOnly = false;     // default is true
+    options.Cookie.IsEssential = true;   // default is false
+});
+
 
 var app = builder.Build();
 
@@ -23,6 +31,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
+
 
 
 

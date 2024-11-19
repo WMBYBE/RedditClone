@@ -9,7 +9,7 @@
         <tr>
             <td>@Model.Title</td>
             <td>@Model.Date</td>
-            <td>><a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId" class="text-decoration-none text-primary"> @ViewBag.Users.Name</a>
+            <td><a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId" class="text-decoration-none text-primary"> @Model.UserId</a>
             </td><
             </tr>
     </thead>

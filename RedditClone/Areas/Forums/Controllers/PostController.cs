@@ -35,6 +35,7 @@ namespace RedditClone.Areas.Forums.Controllers
         {
             ViewBag.Action = "Add";
             ViewBag.Forums = context.Forums.OrderBy(g => g.Name).ToList();
+            ViewBag.id = HttpContext.Session.GetInt32("id");
             return View("Add", new Post());
         }
         [HttpGet]
@@ -42,6 +43,7 @@ namespace RedditClone.Areas.Forums.Controllers
         {
             ViewBag.Action = "Add";
             ViewBag.Posts = context.Posts.OrderBy(g => g.Title).ToList();
+
             return View("AddComment", new Comment());
         }
         [HttpPost]

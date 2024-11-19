@@ -4,8 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting;
 using RedditClone.Models;
+using System;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
+
 
 namespace RedditClone.Controllers
 {
@@ -77,11 +80,16 @@ namespace RedditClone.Controllers
 
             if ((foundUser != null) && foundPassword != null)
             {
+               
+
+                HttpContext.Session.SetInt32("id", foundPassword.UserId);
                 ViewBag.id = foundPassword.UserId;
+
                 return RedirectToAction("Index", "Home");
             }
             else if ((foundEmail != null) && foundPassword != null)
             {
+                HttpContext.Session.SetInt32("id", foundPassword.UserId);
                 ViewBag.id = foundPassword.UserId;
                 return RedirectToAction("Index", "Home");
             }
