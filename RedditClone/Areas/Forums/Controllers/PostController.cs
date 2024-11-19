@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RedditClone.Areas.Forums.Controllers;
 using RedditClone.Models;
 
 namespace RedditClone.Areas.Forums.Controllers

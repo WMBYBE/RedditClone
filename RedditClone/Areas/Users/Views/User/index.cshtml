@@ -1,31 +1,12 @@
 ﻿@model List<Post> //index for viewing a user's post
+@{
     ViewBag.Title = "Forum";
     Layout = "_Layout";
 }
 
-<a asp-controller="Post" asp-area="Forums" asp-action="Add">Add New Post</a>
-<h2>@ViewBag.ForumName.Name</h2>
-<div class="row">
-    <div class="col-sm-2">
-        <div class="list-group">
-            @foreach (Forum f in ViewBag.ForumList)
-            {
-                <a asp-controller="Forum" asp-action="Index" asp-route-id="@f.ForumId"
-                   class="list-group-item">
-                    @f.Name
-                </a>
-            }
-        </div>
-    </div>
+<h2>@ViewBag.User.Name</h2>
     <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSort })
-            </tr>
-            <tr>
-                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSort })
-            </tr>
-        </thead>
+
         <tbody>
             @foreach (var forum in Model)
             {

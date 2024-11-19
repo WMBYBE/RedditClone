@@ -3,6 +3,7 @@ using RedditClone.Models;
 
 namespace RedditClone.Areas.Users.Controllers
 {
+    [Area("Users")]
     public class UserController : Controller
     {
         private ForumDbContext context { get; set; }

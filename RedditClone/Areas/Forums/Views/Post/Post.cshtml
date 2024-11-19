@@ -9,8 +9,9 @@
         <tr>
             <td>@Model.Title</td>
             <td>@Model.Date</td>
-            <td>@ViewBag.Users.Name</td>
-        </tr>
+            <td>><a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId"> @ViewBag.Users.Name</a>
+            </td><
+            </tr>
     </thead>
 <tbody>
         @Model.Body
