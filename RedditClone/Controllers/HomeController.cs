@@ -58,12 +58,16 @@ namespace RedditClone.Controllers
             //List<User> identification = query.ToList();
             var foundUser = query.FirstOrDefault();
 
-            if(foundUser == null)
+            string password = user.Password;
+            IQueryable<User> passwords = context.Users.Where(m => m.Password == password);
+            var foundPassword = passwords.FirstOrDefault();
+
+            if ((foundUser == null) || foundPassword == null)
             {
                 Login();
             }
             else{
-                //foundUser.UserId
+                return View();
             }
 
             return RedirectToAction("Index", "Home");
