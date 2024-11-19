@@ -77,10 +77,12 @@ namespace RedditClone.Controllers
 
             if ((foundUser != null) && foundPassword != null)
             {
+                ViewBag.id = foundPassword.UserId;
                 return RedirectToAction("Index", "Home");
             }
             else if ((foundEmail != null) && foundPassword != null)
             {
+                ViewBag.id = foundPassword.UserId;
                 return RedirectToAction("Index", "Home");
             }
             
