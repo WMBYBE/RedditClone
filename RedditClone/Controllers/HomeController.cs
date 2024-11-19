@@ -60,7 +60,8 @@ namespace RedditClone.Controllers
 
             if(foundUser == null)
             {
-                Login();
+                ViewBag.error = "Invalid username or password";
+                return View();
             }
             else{
                 //foundUser.UserId
