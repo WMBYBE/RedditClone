@@ -43,6 +43,7 @@ namespace RedditClone.Areas.Forums.Controllers
         {
             ViewBag.Action = "Add";
             ViewBag.Posts = context.Posts.OrderBy(g => g.Title).ToList();
+            ViewBag.id = HttpContext.Session.GetInt32("id");
 
             return View("AddComment", new Comment());
         }

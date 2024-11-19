@@ -1,7 +1,10 @@
 ﻿@model RedditClone.Models.Comment
+@using Microsoft.AspNetCore.Http
 @{
     string title = ViewBag.Action + " Comment";
     ViewBag.Title = title;
+    Layout = "_Layout";
+    int? id = Context.Session.GetInt32("id");
 }
 
 <h2>@title</h2>
@@ -25,6 +28,7 @@
         </select>
     </div>
 
+    <input type="hidden" asp-for="UserId" value="@ViewBag.Id" />
     <input type="hidden" asp-for="CommentId" />
 
     <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
