@@ -27,6 +27,7 @@ namespace RedditClone.Areas.Forums.Controllers
             }
 
             ViewBag.Comments = comments;
+            ViewBag.Users = context.Users.Find(id);
 
             return View(post);
         }

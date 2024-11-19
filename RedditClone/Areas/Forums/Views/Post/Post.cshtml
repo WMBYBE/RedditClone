@@ -9,11 +9,13 @@
         <tr>
             <td>@Model.Title</td>
             <td>@Model.Date</td>
+            <td>@ViewBag.Users.Name</td>
         </tr>
     </thead>
 <tbody>
         @Model.Body
-</tbody>
+        
+    </tbody>
 </table>
 <a class="text-decoration-none border border-dark text-dark" asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
 <div class="col-sm-2">
