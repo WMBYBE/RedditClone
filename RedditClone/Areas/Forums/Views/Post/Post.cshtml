@@ -4,18 +4,20 @@
     Layout = "_Layout";
 }
 
-<table>
+<table class ="table">
     <thead> 
         <tr>
-            <td>@Model.Title</td>
-            <td>@Model.Date</td>
-            <td><a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId" class="text-decoration-none text-primary"> Posted by User Number: @Model.UserId</a>
+            <td scope ="col">@Model.Title</tds>
+            <td scope="col">@Model.Date</td>
+            <td scope ="col" >
+                <a asp-controller="User" asp-action="Index" asp-area="Users" asp-route-id="@Model.UserId" class="text-decoration-none text-primary"> Posted by User Number: @Model.UserId</a>
             </td><
             </tr>
     </thead>
 <tbody>
-        @Model.Body
-        
+    <tr>
+    <td colspan="2" >@Model.Body</td>
+        </tr>
     </tbody>
 </table>
 <a class="text-decoration-none border border-dark text-dark" asp-controller="Post" asp-area="Forums" asp-action="AddComment">Add New Comment</a>
