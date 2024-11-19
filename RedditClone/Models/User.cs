@@ -10,7 +10,8 @@ public class User
 
     [Required(ErrorMessage = "Please enter a UserName.")]
     public string Name { get; set; }
-    public string? Password { get; set; }
+    [Required(ErrorMessage = "Please enter a Password.")]
+    public string Password { get; set; }
     public string? Email { get; set; }
 
 }
