@@ -82,15 +82,15 @@ namespace RedditClone.Controllers
             {
                
 
-                HttpContext.Session.SetInt32("id", foundPassword.UserId);
-                ViewBag.id = foundPassword.UserId;
+                HttpContext.Session.SetInt32("id", foundUser.UserId);
+                ViewBag.id = foundUser.UserId;
 
                 return RedirectToAction("Index", "Home");
             }
             else if ((foundEmail != null) && foundPassword != null)
             {
-                HttpContext.Session.SetInt32("id", foundPassword.UserId);
-                ViewBag.id = foundPassword.UserId;
+                HttpContext.Session.SetInt32("id", foundEmail.UserId);
+                ViewBag.id = foundEmail.UserId;
                 return RedirectToAction("Index", "Home");
             }
             
