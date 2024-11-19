@@ -62,7 +62,7 @@ namespace RedditClone.Controllers
             IQueryable<User> passwords = context.Users.Where(m => m.Password == password);
             var foundPassword = passwords.FirstOrDefault();
 
-            if ((foundUser == null) && foundPassword == null)
+            if (foundUser == null || foundPassword == null)
             {
                 Login();
             }
