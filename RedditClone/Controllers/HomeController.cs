@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Hosting;
 using RedditClone.Models;
 using System.Diagnostics;
 using System.Linq;
@@ -43,6 +44,14 @@ namespace RedditClone.Controllers
             {
                 forums = forums.Where(s => s.Name!.ToUpper().Contains(searchString.ToUpper()));
             }
+            List<Post> posts;
+            {
+                posts = context.Posts
+                    .OrderBy(p => p.Date).ToList(); //sorts posts by date
+            }
+            var topPosts = posts.Take(3); //limits the posts to show to the top 3
+
+            ViewBag.TopPosts = topPosts;
 
             return View(forums.ToList());
         }
