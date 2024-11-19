@@ -17,10 +17,10 @@ namespace RedditClone.Controllers
             context = ctx;
         }
 
-        public IActionResult Index() 
+        public IActionResult Index()
         {
             var forums = context.Forums.OrderBy(c => c.Name).ToList(); //Sends the lsit of forums to the index page so that you can see them all
-            
+
             List<Post> posts;
             {
                 posts = context.Posts
@@ -62,18 +62,25 @@ namespace RedditClone.Controllers
             IQueryable<User> passwords = context.Users.Where(m => m.Password == password);
             var foundPassword = passwords.FirstOrDefault();
 
-            if ((foundUser == null) || foundPassword == null)
+            string email = user.Name;
+            IQueryable<User> emails = context.Users.Where(m => m.Email == email);
+            var foundEmail = emails.FirstOrDefault();
+
+            if ((foundUser != null) && foundPassword != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else if ((foundEmail != null) && foundPassword != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+            else
             {
                 ViewBag.error = "Invalid username or password";
                 return View();
             }
-            else{
 
-             
-                return RedirectToAction("Index", "Home");
-            }
-
-            
         }
     }
 }
